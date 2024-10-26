@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Juego de Memoria</title>
+</head>
+<body>
+    <div class="game-container">
+        <h1 id="gameTitle">Juego de Memoria</h1>
+        <div id="playerSection">
+            <div class="players">
+                <input type="text" id="playerName" placeholder="Nombre del jugador">
+                <button id="addPlayerBtn">Añadir Jugador</button>
+            </div>
+            <div>
+                <label for="timerInput">Selecciona el tiempo (en segundos):</label>
+                <input type="number" id="timerInput" value="30" min="10">
+            </div>
+            <button id="startBtn" style="margin-top: 10px;">Iniciar Juego</button>
+        </div>
+        <div id="timer"></div>
+        <div id="turnIndicator"></div>
+        <div id="board"></div>
+        <div id="ranking"></div>
+        <button id="restartBtn" style="display:none;">Reiniciar Juego</button>
+        <button id="backToStartBtn" style="display:none; margin-top: 10px;">Volver al Inicio</button> <!-- Botón para volver al inicio -->
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3c1053, #ad5389); /* Fondo con degradado morado y fucsia */
+    color: #fff;
+    padding: 20px;
+    transition: background 0.5s ease; /* Transición de fondo */
+}
+
+.game-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.players {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 2px solid #ff80ab; /* Borde fucsia */
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #ff4081;
+    box-shadow: 0 0 8px rgba(255, 64, 129, 0.5); /* Sombra de enfoque */
+    outline: none;
+}
+
+button {
+    padding: 12px 18px;
+    background-color: #ff4081; /* Color fucsia fuerte */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff80ab; /* Color fucsia más claro */
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(255, 128, 171, 0.5);
+}
+
+#timer, #turnIndicator {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #fff;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.card {
+    height: 90px;
+    background-color: #6d28d9; /* Color morado vibrante */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped {
+    background-color: #9d4edd; /* Color morado claro */
+}
+
+.card:not(.flipped):hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card:before {
+    content: '?';
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.card.flipped:before {
+    content: '';
+}
+
+#ranking {
+    margin-top: 20px;
+    text-align: left;
+    color: #fff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #222;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.5s ease;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #board {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 12px;
+    }
+
+    .card {
+        height: 80px;
+        font-size: 22px;
+        background-color: #b76ef5; /* Color lavanda claro */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #board {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+        gap: 10px;
+    }
+
+    .card {
+        height: 70px;
+        font-size: 20px;
+        background-color: #cba3ff; /* Color pastel morado */
+    }
+
+    .game-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.4em;
+    }
+
+    #board {
+        gap: 8px;
+    }
+
+    .card {
+        height: 65px;
+        font-size: 18px;
+        background-color: #d5a6e7; /* Color pastel morado más claro */
+    }
+
+    .game-container {
+        padding: 15px;
+    }
+}
